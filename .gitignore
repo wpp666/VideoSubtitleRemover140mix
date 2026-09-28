@@ -1,0 +1,31 @@
+# 构建环境产物(embed python 运行环境)
+python.exe
+pythonw.exe
+python312.dll
+python3.dll
+python312.zip
+python312._pth
+*.pyd
+*.dll
+*.exe
+libcrypto-3.dll
+libssl-3.dll
+libffi-8.dll
+vcruntime140*.dll
+Lib/
+DLLs/
+Scripts/
+share/
+get-pip.py
+
+# 运行/缓存
+__pycache__/
+*.pyc
+*.pth
+*.pt
+*.pdiparams*
+*.onnx
+desktop.ini
+.idea/
+.vscode/
+.DS_Store
