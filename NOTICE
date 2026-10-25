@@ -1,0 +1,31 @@
+VideoSubtitleRemover140mix
+Copyright 2026 wpp666
+
+This repository redistributes and modifies source code from:
+
+  Video Subtitle Remover (video-subtitle-remover)
+  https://github.com/YaoFANGUK/video-subtitle-remover
+  Copyright YaoFANGUK and contributors
+  Licensed under the Apache License, Version 2.0
+
+The following files are derived from that project, based on its v1.4.0
+release:
+
+  backend/    ui/    design/    config/    test/
+  gui.py      requirements.txt
+
+Modifications made by this repository, and not present upstream:
+
+  setup_cuda_env.py          builds an embedded Python 3.12.10 environment
+                             with CUDA-enabled torch, so the v1.4.0 sources
+                             run on an NVIDIA GPU on Windows.
+  start_official_cuda.bat    launcher for that embedded environment.
+  README.md                  rewritten installation and usage notes.
+
+The upstream v1.4.0 release ships a CPU-only installer, with CUDA left
+disabled in its requirements. The upstream source already contains the
+device detection for CUDA. These modifications therefore do not add new
+GPU code paths; they restore the ability to use the ones already present.
+
+This project is not affiliated with, sponsored by, or endorsed by the
+upstream authors. See LICENSE for the full Apache License, Version 2.0.

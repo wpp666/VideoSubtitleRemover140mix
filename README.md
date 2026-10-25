@@ -4,6 +4,10 @@
 
 > 官方 v1.4.0 只提供 CPU 安装包;本仓库把 GPU 能力以「嵌入式 Python + CUDA torch」的方式补回,保留 v1.4.0 完整源码。
 
+> **本项目无隶属关系声明** — This is an unofficial community build. It is not
+> affiliated with, sponsored by, or endorsed by the upstream authors. See
+> [NOTICE](NOTICE) for the full attribution.
+
 ---
 
 ## 为什么有这个仓库
@@ -97,4 +101,12 @@ A: 可以,将 `setup_cuda_env.py` 里的 `torch==2.7.0` 改为其它 cu128 版�
 
 ## 许可证
 
-遵循上游项目 [YaoFANGUK/video-subtitle-remover](https://github.com/YaoFANGUK/video-subtitle-remover) 的许可证。
+本仓库以 **Apache License 2.0** 分发,见 [LICENSE](LICENSE)。
+
+`backend/`、`ui/`、`design/`、`config/`、`test/`、`gui.py`、`requirements.txt` 来自
+上游 [YaoFANGUK/video-subtitle-remover](https://github.com/YaoFANGUK/video-subtitle-remover)
+的 v1.4.0,同样以 Apache-2.0 授权。`setup_cuda_env.py`、`start_official_cuda.bat`
+为本仓库新增。完整署名见 [NOTICE](NOTICE)。
+
+Apache-2.0 要求再分发时保留许可证与声明,这正是本仓库补上 `LICENSE` / `NOTICE` 的原因;
+如果你 fork 本项目,请一并保留这两个文件。
