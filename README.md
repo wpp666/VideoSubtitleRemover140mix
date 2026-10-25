@@ -1,8 +1,12 @@
 # Video Subtitle Remover v1.4.0 + CUDA(GPU 版)
 
-基于开源项目 [YaoFANGUK/video-subtitle-remover](https://github.com/YaoFANGUK/video-subtitle-remover) 的 v1.4.0 源码,内置嵌入式 Python + CUDA 构建方案,使 **Windows + NVIDIA 显卡** 环境下可享受 v1.4.0 的新界面与功能,同时让去字幕核心(修补 / OCR / 帧插值)真正跑在 GPU 上。
+基于开源项目 [YaoFANGUK/video-subtitle-remover](https://github.com/YaoFANGUK/video-subtitle-remover) 的 v1.4.0 源码,内置嵌入式 Python + CUDA 构建方案,使 **Windows + NVIDIA 显卡** 环境下可享受 v1.4.0 的新界面与功能,同时让修补(ProPainter / STTN / LaMa)与帧插值真正跑在 GPU 上。
 
 > 官方 v1.4.0 只提供 CPU 安装包;本仓库把 GPU 能力以「嵌入式 Python + CUDA torch」的方式补回,保留 v1.4.0 完整源码。
+
+> **哪些部分走了 GPU** —— 修补与帧插值走 cu128 torch。**OCR 仍在 CPU**:
+> `setup_cuda_env.py` 安装的 `paddlepaddle` 是 PyPI 上的 CPU 版,GPU 版需改用
+> `paddlepaddle-gpu` 与英伟达的源,本仓库未切换。
 
 > **本项目无隶属关系声明** — This is an unofficial community build. It is not
 > affiliated with, sponsored by, or endorsed by the upstream authors. See
@@ -13,9 +17,11 @@
 ## 为什么有这个仓库
 
 - 官方最近发布 v1.4.0 只打包了 **CPU 版**(CUDA 加速在 requirements 中被注释)。
+- 而更早的 **v1.1.1 曾提供四个 GPU 构建**(directml、CUDA 11.8 / 12.6 / 12.8),v1.4.0 一个都没有。
 - 但 v1.4.0 源码本身完整支持 CUDA(`backend/tools/hardware_accelerator.py` 会检测 `torch.cuda.is_available()`)。
 - 因此只要换用 **CUDA 版 torch**,即得到「新功能 + GPU 加速」的完整组合。
 - 本仓库基于 **嵌入式 Python 3.12.10**,整套绿色便携、不污染系统注册表、不占系统 Python。
+- 上游 issue [#252](https://github.com/YaoFANGUK/video-subtitle-remover/issues/252)、[#226](https://github.com/YaoFANGUK/video-subtitle-remover/issues/226) 正是在问这个版本。
 
 ---
 
